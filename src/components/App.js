@@ -25,7 +25,6 @@ function App(props) {
       </Route>
     )
   })
-
 return(
   <Router>
         <div>
@@ -39,7 +38,7 @@ return(
           </nav>
           <main>
             <Switch>
-              <Route path="/" key="home">
+              <Route exact path="/" key="home">
                 <Home data={props.data}/>
               </Route>
                 {studentRouting}

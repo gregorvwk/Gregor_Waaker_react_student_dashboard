@@ -1,11 +1,25 @@
 import React from "react"
+import { VictoryChart, VictoryTheme, VictoryBar, VictoryAxis } from "victory"
 
 function StudentPage(props){
-    console.log(props.name.name)
+    const personData = props.data.filter(data => data.name === props.name)
+    console.log(personData)
     return(
         <div>
-            <h1>{props.name.name}</h1>
-            <h2>check</h2>
+            <VictoryChart theme={VictoryTheme.material} height={200} width={300} className="chart">
+                <VictoryBar 
+                    alignment="middle"
+                    data={personData}
+                    y="funfactor"
+                    x="assignment"
+                />
+                <VictoryAxis 
+                    label="Assingment"
+                />
+                <VictoryAxis dependentAxis 
+                    label="Funfactor"
+                />
+            </VictoryChart>
         </div>
     )
 }
