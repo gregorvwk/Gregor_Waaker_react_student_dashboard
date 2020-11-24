@@ -10,9 +10,6 @@ function Charts(props){
             <div className="chart-1">
                 <h2>Gemiddelde per Assignment</h2>
                 <VictoryChart 
-                height={400} 
-                width={600} 
-                // animate={{ duration: 2000, easing: "linear" }}
                 containerComponent={
                 <VictoryVoronoiContainer 
                 labelComponent={<VictoryTooltip cornerRadius={0} flyoutStyle={{fill: "white"}}/>}
@@ -71,7 +68,6 @@ function Charts(props){
             <VictoryChart
                 height={400} 
                 width={600} 
-                // animate={{ duration: 2000, easing: "linear" }}
             >
                 <VictoryBar
                 domain={{y: [0,5], x: [0,10]}}

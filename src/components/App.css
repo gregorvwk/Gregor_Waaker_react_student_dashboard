@@ -7,8 +7,21 @@
   padding-top: 60px;
   color: white;
   text-decoration: none;
-  padding-right: 1rem;
+  padding-right: 3rem;
 }
 .menu-item{
   color: white;
+}
+.dropdown {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.dropdown__content {
+  display: none;
+  position: absolute;
+}
+
+.dropdown--active .dropdown__content {
+  display: block;
 }

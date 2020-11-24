@@ -18,13 +18,37 @@ h1{
 }
 .chart-1 { 
     grid-area: chart-1; 
+    padding-bottom: 5rem;
 }
-.chart-2 { grid-area: chart-2; }
-.chart-3 { grid-area: chart-3; }
-.chart-4 { grid-area: chart-4; }
+.chart-2 { 
+    grid-area: chart-2; 
+}
+.chart-3 { 
+    grid-area: chart-3; 
+}
+.chart-4 { 
+    grid-area: chart-4; 
+}
 .student-name{
     margin: 0 auto;
     color: black;
     padding: 30px;
     text-align: center;
+}
+
+@media(max-width: 1300px){
+    .chart{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        gap: 0px 0px;
+        grid-template-areas:
+            "chart-1"
+            "chart-2"
+            "chart-3"
+            "chart-4";
+        margin: auto;
+        max-height: 125rem;
+        max-width: 30rem;
+    }
 }

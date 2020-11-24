@@ -8,11 +8,8 @@ function StudentPage(props){
         <div>
             <h1 className="Header">Student Dashboard</h1>
             <h2 className="student-name">{props.name}</h2>
-            <div style={{width: "65rem", margin: "auto"}}>
+            <div style={{width: "60rem", margin: "auto"}}>
                 <StudentCharts data={personData} />
-                {/* <StudentCharts data={personData} className="chart-2"/>
-                <StudentCharts data={personData} className="chart-3"/>
-                <StudentCharts data={personData} className="chart-4"/> */}
             </div>
         </div>
     )

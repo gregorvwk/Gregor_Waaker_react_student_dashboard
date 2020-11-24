@@ -8,7 +8,7 @@ import {
   Link
 } from "react-router-dom";
 import StudentPage from "./StudentPage"
-
+import  Dropdown, { DropdownTrigger, DropdownContent}  from "react-simple-dropdown"
 
 function App(props) {
   const studentNames = props.names.map(name => {
@@ -33,10 +33,14 @@ return(
               <li key="home">
                 <Link to="/" style={{ textDecoration: 'none' }} className="menu-item">Home</Link>
               </li>
-              <li>Students</li>
+              <Dropdown>
+              <DropdownTrigger>Students</DropdownTrigger>
+                <DropdownContent>
                 <ul style={{ listStyle: "none" }}>
-                 {studentNames}
+                  {studentNames}
                 </ul>
+                </DropdownContent>
+                </Dropdown>
             </ul>
           </nav>
           <main>

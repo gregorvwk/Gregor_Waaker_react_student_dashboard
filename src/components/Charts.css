@@ -35,3 +35,20 @@ p{
 .chart-4{
     grid-area: chart-4;
 }
+
+@media(max-width: 1300px){
+    .chart{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        gap: 0px 0px;
+        grid-template-areas:
+            "chart-1"
+            "chart-2"
+            "chart-3"
+            "chart-4";
+        margin: auto;
+        max-height: 125rem;
+        max-width: 30rem;
+    }
+}
