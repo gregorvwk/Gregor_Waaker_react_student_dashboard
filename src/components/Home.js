@@ -1,14 +1,16 @@
 import React, { Component } from "react"
-import { VictoryChart, VictoryTheme, VictoryBar, VictoryAxis } from "victory"
-import "./Home.css"
+import Charts from "./Charts"
+// import "./Home.css"
 
 class Home extends Component{
     constructor(){
         super()
         this.state = {
-            funfactor: []
+            funfactor: [],
+            namesSingle: []
         }
         this.handleData = this.handleData.bind(this)
+        this.handleDataNames = this.handleDataNames.bind(this)
     }
 
     handleData(){
@@ -18,51 +20,42 @@ class Home extends Component{
                 const funfactorSeperate = this.props.data.filter(element => (element.assignment === assign)).reduce((prev, curr) => prev + curr.funfactor, 0) / 10
                 const difficultySeperate = this.props.data.filter(element => (element.assignment === assign)).reduce((prev, curr) => prev + curr.difficulty, 0) / 10
                 this.setState(prevState =>{
-                    const newList = {assignment: assign , funfactor: funfactorSeperate, difficulty: difficultySeperate}
+                    const newList = {assignment: assign , funfactor: funfactorSeperate, difficulty: difficultySeperate, label: assign}
                     const newTotalList = [...prevState.funfactor, newList]
                     return {funfactor: newTotalList}
                 })
         })
     }
+
+    handleDataNames(){
+        const names = this.props.data.map(name => name.name)
+        const namesSingle = Array.from(new Set(names))
+        namesSingle.forEach(name => {
+            const funfactorSeperate = this.props.data.filter(element => (element.name === name)).reduce((prev, curr) => prev + curr.funfactor, 0) / 56
+            const difficultySeperate = this.props.data.filter(element => (element.name === name)).reduce((prev, curr) => prev + curr.difficulty, 0) / 56
+            this.setState(prevState =>{
+                const newList = {name: name , funfactor: funfactorSeperate, difficulty: difficultySeperate, label: name}
+                const newTotalList = [...prevState.namesSingle, newList]
+                return {namesSingle: newTotalList}
+            })
+        })
+    }
     
     componentDidMount(){
         this.handleData()
+        this.handleDataNames()
     }
     render(){
         return(
-        <div>
-            <h1>Student Dashboard</h1>
-            <VictoryChart theme={VictoryTheme.material} height={200} width={300} className="chart">
-                <VictoryBar 
-                    alignment="middle"
-                    data={this.state.funfactor}
-                    y="funfactor"
-                    x="assignment"
-                />
-                <VictoryAxis 
-                    label="Assingment"
-                />
-                <VictoryAxis dependentAxis 
-                    label="Funfactor"
-                />
-            </VictoryChart>
-            <VictoryChart theme={VictoryTheme.material} height={200} width={300} className="chart">
-                <VictoryBar
-                    alignment="middle"
-                    data={this.state.funfactor}
-                    y="difficulty"
-                    x="assignment"
-                />
-                <VictoryAxis dependentAxis
-                    label="Rating"
-                />
-                <VictoryAxis
-                    label="Assignment"
-                />
-            </VictoryChart>
-        </div>
-    )
-}
+            <div>
+                <h1 className="Header">Student Dashboard</h1>
+                <div style={{width: "60rem", margin: "auto"}}>
+                    <Charts data={this.state} studentData={this.props.data}/>
+                    
+                </div>
+            </div>
+        )
+    }
 }
 
 export default Home

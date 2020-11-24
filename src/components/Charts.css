@@ -1,26 +1,37 @@
 .chart{
     display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr ;
+  grid-template-rows: 1fr 1fr;
   gap: 0px 0px;
   grid-template-areas:
     "chart-1 chart-2"
     "chart-3 chart-4";
     margin: auto;
+    max-height: 125rem;
 }
-h1{
-    background: black;
-    color: white;
-    margin: 0 auto;
+
+h2{
     text-align: center;
 }
+p{
+    text-align: center;
+}
+
 .Header { 
     margin: 0 auto;
     height: 5rem;
 }
 .chart-1 { 
     grid-area: chart-1; 
+    max-height: 20rem;
 }
-.chart-2 { grid-area: chart-2; }
-.chart-3 { grid-area: chart-3; }
-.chart-4 { grid-area: chart-4; }
+.chart-2 { 
+    grid-area: chart-2; 
+    max-height: 20rem;
+}
+.chart-3 { 
+    grid-area: chart-3;
+}
+.chart-4{
+    grid-area: chart-4;
+}

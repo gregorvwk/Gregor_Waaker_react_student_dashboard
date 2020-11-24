@@ -14,26 +14,29 @@ function App(props) {
   const studentNames = props.names.map(name => {
     return(
       <li key={name}>
-        <Link to="/StudentPage">{name}</Link>
+        <Link to={`/StudentPage/${name}`}style={{ textDecoration: 'none' }} className="menu-item">{name}</Link>
       </li>
     )
   })
   const studentRouting = props.names.map(name => {
     return(
-      <Route path="/StudentPage" key={name}>
-        <StudentPage name={name} data={props.data}/>
-      </Route>
+        <Route path={`/StudentPage/${name}`} key={name}>
+          <StudentPage name={name} data={props.data}/>
+        </Route>
     )
   })
 return(
   <Router>
         <div>
-          <nav>
-            <ul>
+          <nav className="nav-menu">
+            <ul style={{ listStyle: "none" }}>
               <li key="home">
-                <Link to="/">Home</Link>
+                <Link to="/" style={{ textDecoration: 'none' }} className="menu-item">Home</Link>
               </li>
-              {studentNames}
+              <li>Students</li>
+                <ul style={{ listStyle: "none" }}>
+                 {studentNames}
+                </ul>
             </ul>
           </nav>
           <main>
@@ -41,7 +44,7 @@ return(
               <Route exact path="/" key="home">
                 <Home data={props.data}/>
               </Route>
-                {studentRouting}
+                  {studentRouting}
             </Switch>
           </main>
         </div>

@@ -1,25 +1,19 @@
 import React from "react"
-import { VictoryChart, VictoryTheme, VictoryBar, VictoryAxis } from "victory"
+import StudentCharts from "./StudentCharts"
+import "./StudentPage.css"
 
 function StudentPage(props){
     const personData = props.data.filter(data => data.name === props.name)
-    console.log(personData)
     return(
         <div>
-            <VictoryChart theme={VictoryTheme.material} height={200} width={300} className="chart">
-                <VictoryBar 
-                    alignment="middle"
-                    data={personData}
-                    y="funfactor"
-                    x="assignment"
-                />
-                <VictoryAxis 
-                    label="Assingment"
-                />
-                <VictoryAxis dependentAxis 
-                    label="Funfactor"
-                />
-            </VictoryChart>
+            <h1 className="Header">Student Dashboard</h1>
+            <h2 className="student-name">{props.name}</h2>
+            <div style={{width: "65rem", margin: "auto"}}>
+                <StudentCharts data={personData} />
+                {/* <StudentCharts data={personData} className="chart-2"/>
+                <StudentCharts data={personData} className="chart-3"/>
+                <StudentCharts data={personData} className="chart-4"/> */}
+            </div>
         </div>
     )
 }
