@@ -4,7 +4,6 @@ import "./Charts.css"
 import ChartAssignment from "./ChartsAssignment"
 
 function Charts(props){
-
     return(
         <div className="chart">
             <div className="chart-1">

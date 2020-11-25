@@ -28,6 +28,7 @@ p{
 .chart-2 { 
     grid-area: chart-2; 
     max-height: 20rem;
+    padding-bottom: 5rem;
 }
 .chart-3 { 
     grid-area: chart-3;

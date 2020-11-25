@@ -9,17 +9,17 @@ class AppContainer extends Component{
             studentData: AppData,
             studentNames: []
         }
-        this.addStudentPages = this.addStudentPages.bind(this)
+        this.addStudentData = this.addStudentData.bind(this)
     }
 
-    addStudentPages(){
+    addStudentData(){
         const studentNames = this.state.studentData.map(name => name.name)
         const studentNamesSeparate = Array.from(new Set(studentNames))
         this.setState({studentNames: [...studentNamesSeparate]})
     }
-
+    
     componentDidMount(){
-        this.addStudentPages()
+        this.addStudentData()
     }
     
     render() {

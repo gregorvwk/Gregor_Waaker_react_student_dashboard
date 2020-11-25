@@ -3,6 +3,7 @@ import { VictoryChart, VictoryAxis, VictoryTooltip, VictoryBar } from "victory"
 import "./Charts.css"
 
 function StudentCharts(props){
+    console.log(props)
     return(
         <div className="chart">
             <div className="chart-1">
@@ -18,9 +19,7 @@ function StudentCharts(props){
                     y="funfactor"
                     x="assignment" 
                     labelComponent={
-                        <VictoryTooltip 
-                            pointerLength={40}
-                        />
+                        <VictoryTooltip pointerLength={40} label={props.data.assignment}/>
                     }
                     style={{data: {
                         fill: "red"
