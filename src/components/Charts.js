@@ -18,7 +18,7 @@ function Charts(props){
                 <VictoryLine 
                     domain={{y: [0,5]}}
                     alignment="middle"
-                    data={props.data.funfactor}
+                    data={props.data.averageStudent}
                     y="funfactor"
                     x="assignment" 
                     labelComponent={
@@ -33,7 +33,7 @@ function Charts(props){
                 <VictoryLine
                 domain={{y: [0,5]}}
                     alignment="middle"
-                    data={props.data.funfactor}
+                    data={props.data.averageStudent}
                     y="difficulty"
                     x="assignment"
                     labelComponent={

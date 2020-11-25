@@ -10,6 +10,7 @@ class ChartsAssignment extends Component{
         }
         this.handleClick = this.handleClick.bind(this)
         this.handleData = this.handleData.bind(this)
+        // this.addLine = this.addLine.bind(this)
     }
 
 handleClick(assign){
@@ -22,6 +23,7 @@ handleClick(assign){
             }
         }
     })
+    // this.addLine()
     this.forceUpdate()
 }
 handleData(){
@@ -33,10 +35,40 @@ handleData(){
 componentDidMount(){
     this.handleData()
 }
+// addLine(){
+//     const assignments = this.state.assignmentData.map(assignment => assignment.assignment)
+//     const assignmentsSingle = Array.from(new Set(assignments))
+//     const newAssignmentLine = this.state.assignmentData.map(data => {
+//         const assignmentLine = assignmentsSingle.forEach(assign => {
+//                 if(data.assignment === assign && data.show === true){
+//                 console.log("check")
+//                 return <VictoryLine 
+//                             domain={{y: [0,5]}}
+//                             alignment="middle"
+//                             data={data}
+//                             y={this.props.axis}
+//                             x="name" 
+//                             labelComponent={
+//                                 <VictoryTooltip 
+//                                     pointerLength={40}
+//                                 />
+//                             }
+//                             style={{data: {
+//                                 stroke: this.props.color
+//                             }}}
+//                             key={this.state.assignmentData.name + this.state.assignmentData.assignment}
+//                         />
+//                 }
+//         })
+//         return assignmentLine
+//     })
+//     return newAssignmentLine
+// }
     render(){
         return(
             <div>
                 <VictoryChart>
+                    {/* {this.addLine()} */}
                     <VictoryLine 
                         domain={{y: [0,5]}}
                         alignment="middle"

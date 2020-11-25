@@ -1,12 +1,11 @@
 import React, { Component } from "react"
 import Charts from "./Charts"
-// import "./Home.css"
 
 class Home extends Component{
     constructor(){
         super()
         this.state = {
-            funfactor: [],
+            averageStudent: [],
             namesSingle: []
         }
         this.handleData = this.handleData.bind(this)
@@ -20,9 +19,9 @@ class Home extends Component{
                 const funfactorSeperate = this.props.data.filter(element => (element.assignment === assign)).reduce((prev, curr) => prev + curr.funfactor, 0) / 10
                 const difficultySeperate = this.props.data.filter(element => (element.assignment === assign)).reduce((prev, curr) => prev + curr.difficulty, 0) / 10
                 this.setState(prevState =>{
-                    const newList = {assignment: assign , funfactor: funfactorSeperate, difficulty: difficultySeperate, label: assign}
-                    const newTotalList = [...prevState.funfactor, newList]
-                    return {funfactor: newTotalList}
+                    const newList = {assignment: assign , funfactor: funfactorSeperate, difficulty: difficultySeperate, label: "Assignment: " + assign + " Funfactor: " + funfactorSeperate + " Difficulty: " + difficultySeperate}
+                    const newTotalList = [...prevState.averageStudent, newList]
+                    return {averageStudent: newTotalList}
                 })
         })
     }
@@ -34,7 +33,7 @@ class Home extends Component{
             const funfactorSeperate = this.props.data.filter(element => (element.name === name)).reduce((prev, curr) => prev + curr.funfactor, 0) / 56
             const difficultySeperate = this.props.data.filter(element => (element.name === name)).reduce((prev, curr) => prev + curr.difficulty, 0) / 56
             this.setState(prevState =>{
-                const newList = {name: name , funfactor: funfactorSeperate, difficulty: difficultySeperate, label: name}
+                const newList = {name: name , funfactor: funfactorSeperate, difficulty: difficultySeperate, label: " Funfactor: " + funfactorSeperate.toFixed(2) + " Difficulty: " + difficultySeperate.toFixed(2) }
                 const newTotalList = [...prevState.namesSingle, newList]
                 return {namesSingle: newTotalList}
             })
